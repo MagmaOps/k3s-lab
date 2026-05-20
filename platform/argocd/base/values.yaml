@@ -1,0 +1,53 @@
+# platform/argocd/base/values.yaml
+server:
+  service:
+    type: ClusterIP
+
+  extraArgs:
+    - --insecure
+
+configs:
+  params:
+    server.insecure: true
+
+  cm:
+    url: http://argocd-prod.lab.local
+
+controller:
+  resources:
+    limits:
+      cpu: 500m
+      memory: 1024Mi
+    requests:
+      cpu: 250m
+      memory: 512Mi
+
+repoServer:
+  resources:
+    limits:
+      cpu: 500m
+      memory: 1024Mi
+    requests:
+      cpu: 250m
+      memory: 512Mi
+
+  livenessProbe:
+    enabled: true
+    initialDelaySeconds: 120
+    periodSeconds: 20
+    timeoutSeconds: 10
+    failureThreshold: 6
+
+  readinessProbe:
+    enabled: true
+    initialDelaySeconds: 60
+    periodSeconds: 10
+    timeoutSeconds: 10
+    failureThreshold: 6
+
+applicationSet:
+  enabled: true
+
+redis:
+  image:
+    tag: 7.4.4-alpine
