@@ -11,7 +11,7 @@ configs:
     server.insecure: true
 
   cm:
-    url: http://argocd-prod.lab.local
+    url: http://argocd.lab.local
 
 controller:
   resources:
