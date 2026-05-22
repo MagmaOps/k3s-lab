@@ -1,0 +1,3 @@
+# platform/ingress-nginx/kustomization.yaml
+resources:
+  - ./ingress-nginx.yaml

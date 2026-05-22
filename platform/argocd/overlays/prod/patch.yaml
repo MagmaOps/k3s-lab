@@ -1,0 +1,23 @@
+# platform/argocd/overlays/prod/patch.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argocd
+  labels:
+    env: prod
+spec:
+  destination:
+    namespace: argocd
+
+  sources:
+    - repoURL: https://argoproj.github.io/argo-helm
+      chart: argo-cd
+      targetRevision: 9.3.5
+      helm:
+        valueFiles:
+          - $values/platform/argocd/base/values.yaml
+          - $values/platform/argocd/overlays/prod/values.yaml
+
+    - repoURL: git@github.com:dmytro-zelenianskyi/k8s-lab.git
+      targetRevision: HEAD
+      ref: values

@@ -1,0 +1,6 @@
+# platform/environments/prod/kustomization.yaml
+resources:
+  - ../../argocd/overlays/prod
+  - ../../argocd-ingress/overlays/prod
+  - ../../ingress-nginx/
+  - ../../monitoring/overlays/prod

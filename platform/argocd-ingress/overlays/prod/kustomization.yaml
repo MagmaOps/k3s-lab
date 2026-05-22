@@ -1,0 +1,17 @@
+# platform/argocd-ingress/overlays/prod/kustomization.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ../../base
+
+namePrefix: ""
+nameSuffix: ""
+
+namespace: argocd
+
+patches:
+  - path: patch.yaml
+    target:
+      kind: Ingress
+      name: argocd

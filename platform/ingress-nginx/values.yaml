@@ -1,0 +1,25 @@
+# platform/nginx/values.yaml
+controller:
+  replicaCount: 1
+
+  ingressClassResource:
+    name: nginx
+    enabled: true
+    default: false
+
+  service:
+    type: LoadBalancer
+
+  admissionWebhooks:
+    enabled: true
+
+  metrics:
+    enabled: true
+    serviceMonitor:
+      enabled: true
+      namespace: monitoring
+      additionalLabels:
+        release: kube-prometheus-stack
+
+defaultBackend:
+  enabled: false

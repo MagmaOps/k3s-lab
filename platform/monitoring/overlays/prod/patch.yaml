@@ -1,0 +1,23 @@
+# platform/monitoring/overlays/prod/patch.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: monitoring
+  labels:
+    env: prod
+spec:
+  destination:
+    namespace: monitoring
+
+  sources:
+    - repoURL: https://prometheus-community.github.io/helm-charts
+      chart: kube-prometheus-stack
+      targetRevision: 81.1.0
+      helm:
+        valueFiles:
+          - $values/platform/monitoring/prod/prometheus/values.yaml
+          - $values/platform/monitoring/prod/grafana/values.yaml
+
+    - repoURL: git@github.com:dmytro-zelenianskyi/k8s-lab.git
+      targetRevision: HEAD
+      ref: values

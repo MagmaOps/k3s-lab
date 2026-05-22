@@ -1,0 +1,7 @@
+# platform/monitoring/overlays/prod/values.yaml
+prometheus:
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    hosts:
+      - prometheus.lab.local

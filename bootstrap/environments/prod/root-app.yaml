@@ -1,0 +1,24 @@
+# bootstrap/environments/prod/root-app.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: bootstrap
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: git@github.com:dmytro-zelenianskyi/k8s-lab.git
+    targetRevision: main
+    path: bootstrap/environments/prod
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

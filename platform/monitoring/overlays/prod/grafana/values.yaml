@@ -1,0 +1,7 @@
+# platform/monitoring/overlays/prod/grafana/values.yaml
+grafana:
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    hosts:
+      - grafana.lab.local

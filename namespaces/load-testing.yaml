@@ -1,0 +1,5 @@
+# namespaces/load-testing.yaml
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: load-testing

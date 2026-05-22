@@ -1,0 +1,38 @@
+# platform/monitoring/base/monitoring-app.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: monitoring
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  project: default
+
+  sources:
+    - repoURL: https://prometheus-community.github.io/helm-charts
+      chart: kube-prometheus-stack
+      targetRevision: 81.1.0
+      helm:
+        valueFiles:
+          - $values/platform/monitoring/base/prometheus/values.yaml
+          - $values/platform/monitoring/base/grafana/values.yaml
+    
+    - repoURL: git@github.com:dmytro-zelenianskyi/k8s-lab.git
+      targetRevision: main
+      ref: values
+
+    - repoURL: git@github.com:dmytro-zelenianskyi/k8s-lab.git
+      targetRevision: main
+      path: platform/monitoring/base/grafana/dashboards
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: MONITORING_NAMESPACE
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true

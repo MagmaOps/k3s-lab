@@ -1,0 +1,47 @@
+# platform/monitoring/grafana/base/values.yaml
+grafana:
+  enabled: true
+
+  adminUser: admin
+  adminPassword: admin
+
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    hosts:
+      - grafana.lab.local
+
+  resources:
+    requests:
+      cpu: 300m
+      memory: 512Mi
+    limits:
+      cpu: 600m
+      memory: 1024Mi
+
+  persistence:
+    enabled: true
+    storageClassName: local-path
+    accessModes:
+      - ReadWriteOnce
+    size: 5Gi
+
+  nodeSelector:
+    kubernetes.io/hostname: w2
+
+  grafana.ini:
+    auth.anonymous:
+      enabled: true
+      org_role: Viewer
+
+    server:
+      domain: localhost
+      root_url: "%(protocol)s://%(domain)s:%(http_port)s/"
+
+  sidecar:
+    dashboards:
+      enabled: true
+      label: grafana_dashboard
+      searchNamespace: monitoring
+    datasources:
+      enabled: true
