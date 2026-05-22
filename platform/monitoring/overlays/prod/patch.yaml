@@ -18,6 +18,6 @@ spec:
           - $values/platform/monitoring/prod/prometheus/values.yaml
           - $values/platform/monitoring/prod/grafana/values.yaml
 
-    - repoURL: git@github.com:dmytro-zelenianskyi/k8s-lab.git
+    - repoURL: git@github.com:dmytro-zelenianskyi/k3s-lab.git
       targetRevision: HEAD
       ref: values

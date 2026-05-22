@@ -17,11 +17,11 @@ spec:
           - $values/platform/monitoring/base/prometheus/values.yaml
           - $values/platform/monitoring/base/grafana/values.yaml
     
-    - repoURL: git@github.com:dmytro-zelenianskyi/k8s-lab.git
+    - repoURL: git@github.com:dmytro-zelenianskyi/k3s-lab.git
       targetRevision: main
       ref: values
 
-    - repoURL: git@github.com:dmytro-zelenianskyi/k8s-lab.git
+    - repoURL: git@github.com:dmytro-zelenianskyi/k3s-lab.git
       targetRevision: main
       path: platform/monitoring/base/grafana/dashboards
 

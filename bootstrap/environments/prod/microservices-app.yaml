@@ -10,7 +10,7 @@ spec:
   project: default
 
   source:
-    repoURL: git@github.com:dmytro-zelenianskyi/k8s-lab.git
+    repoURL: git@github.com:dmytro-zelenianskyi/k3s-lab.git
     targetRevision: main
     path: workloads/microservices-empty
 
