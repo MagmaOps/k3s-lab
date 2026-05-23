@@ -1,8 +1,4 @@
 # platform/argocd/overlays/prod/values.yaml
-global:
-  additionalLabels:
-    env: prod
-
 server:
   cm:
     url: http://argocd.lab.local

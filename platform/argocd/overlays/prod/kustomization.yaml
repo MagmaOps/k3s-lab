@@ -5,8 +5,9 @@ kind: Kustomization
 resources:
   - ../../base
 
-namePrefix: ""
-nameSuffix: ""
-
 patches:
   - path: patch.yaml
+  - path: values.yaml
+    target:
+      kind: Application
+      name: argocd

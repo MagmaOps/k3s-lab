@@ -4,8 +4,6 @@ kind: Application
 metadata:
   name: argocd
   namespace: argocd
-  annotations:
-    argocd.argoproj.io/sync-wave: "-1"
 spec:
   project: default
 
@@ -23,7 +21,7 @@ spec:
 
   destination:
     server: https://kubernetes.default.svc
-    namespace: ARGOCD_NAMESPACE
+    namespace: argocd
 
   syncPolicy:
     automated:
