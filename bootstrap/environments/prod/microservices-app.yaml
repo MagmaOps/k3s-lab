@@ -11,7 +11,7 @@ spec:
 
   source:
     repoURL: git@github.com:dmytro-zelenianskyi/k3s-lab.git
-    targetRevision: main
+    targetRevision: refs/heads/main
     path: workloads/microservices-empty
 
   destination:

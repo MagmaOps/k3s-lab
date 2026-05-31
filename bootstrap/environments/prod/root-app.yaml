@@ -9,7 +9,7 @@ spec:
 
   source:
     repoURL: git@github.com:dmytro-zelenianskyi/k3s-lab.git
-    targetRevision: main
+    targetRevision: refs/heads/main
     path: bootstrap/environments/prod
 
   destination:
