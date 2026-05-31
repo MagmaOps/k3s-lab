@@ -1,7 +1,7 @@
 # platform/argocd/base/values.yaml
 server:
   service:
-    type: NodePort
+    type: ClusterIP
 
   extraArgs:
     - --insecure
