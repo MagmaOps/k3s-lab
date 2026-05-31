@@ -3,7 +3,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: argocd
-  namespace: ARGOCD_NAMESPACE
+  namespace: argocd
   annotations:
     argocd.argoproj.io/sync-wave: "-2"
     nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
