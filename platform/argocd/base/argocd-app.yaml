@@ -15,7 +15,7 @@ spec:
           - $values/platform/argocd/base/values.yaml
 
     - repoURL: git@github.com:dmytro-zelenianskyi/k3s-lab.git
-      targetRevision: HEAD
+      targetRevision: refs/heads/main
       ref: values
 
   destination:

@@ -19,5 +19,5 @@ spec:
           - $values/platform/argocd/overlays/prod/values.yaml
 
     - repoURL: git@github.com:dmytro-zelenianskyi/k3s-lab.git
-      targetRevision: HEAD
+      targetRevision: refs/heads/main
       ref: values
