@@ -4,3 +4,4 @@ resources:
   - ../../argocd-ingress/overlays/prod
   - ../../ingress-nginx/
   - ../../monitoring/overlays/prod
+  - ../../metallb/

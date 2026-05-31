@@ -1,0 +1,24 @@
+# platform/metallb-config.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: metallb-config
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "-5"
+spec:
+  project: default
+
+  source:
+    repoURL: git@github.com:dmytro-zelenianskyi/k3s-lab.git
+    targetRevision: refs/heads/main
+    path: platform/metallb
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: metallb-system
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
