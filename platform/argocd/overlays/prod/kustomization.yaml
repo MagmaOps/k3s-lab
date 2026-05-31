@@ -5,5 +5,7 @@ kind: Kustomization
 resources:
   - ../../base
 
+namespace: argocd
+
 patches:
   - path: patch.yaml
