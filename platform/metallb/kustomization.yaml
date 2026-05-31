@@ -1,4 +1,0 @@
-# platform/metallb/kustomization.yaml
-resources:
-  - ./metallb.yaml
-  - ./metallb-config.yaml

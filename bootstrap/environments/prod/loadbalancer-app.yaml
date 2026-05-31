@@ -1,0 +1,26 @@
+# bootstrap/environments/prod/loadbalancer-app.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: loadbalancer
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "-10"
+spec:
+  project: default
+
+  source:
+    repoURL: git@github.com:dmytro-zelenianskyi/k3s-lab.git
+    targetRevision: refs/heads/main
+    path: platform/metallb
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
