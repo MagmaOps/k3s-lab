@@ -12,7 +12,7 @@ spec:
   source:
     repoURL: git@github.com:dmytro-zelenianskyi/k3s-lab.git
     targetRevision: refs/heads/main
-    path: platform/metallb
+    path: platform/metallb/metallb-config
 
   destination:
     server: https://kubernetes.default.svc
