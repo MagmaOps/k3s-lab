@@ -9,6 +9,7 @@ server:
 configs:
   params:
     server.insecure: true
+    application.namespaces: "*"
 
   cm:
     url: http://argocd.lab.local
