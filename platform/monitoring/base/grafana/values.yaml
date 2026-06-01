@@ -26,9 +26,6 @@ grafana:
       - ReadWriteOnce
     size: 5Gi
 
-  nodeSelector:
-    kubernetes.io/hostname: w2
-
   grafana.ini:
     auth.anonymous:
       enabled: true
