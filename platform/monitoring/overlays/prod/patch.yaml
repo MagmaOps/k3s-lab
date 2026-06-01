@@ -16,8 +16,8 @@ spec:
       targetRevision: 81.1.0
       helm:
         valueFiles:
-          - $values/platform/monitoring/prod/prometheus/values.yaml
-          - $values/platform/monitoring/prod/grafana/values.yaml
+          - $values/platform/monitoring/overlays/prod/prometheus/values.yaml
+          - $values/platform/monitoring/overlays/prod/grafana/values.yaml
 
     - repoURL: git@github.com:dmytro-zelenianskyi/k3s-lab.git
       targetRevision: refs/heads/main
