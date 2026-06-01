@@ -1,13 +1,13 @@
-# platform/monitoring/grafana/dashboards/k8s-cluster.yaml
+# platform/monitoring/grafana/dashboards/k3s-cluster.yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: grafana-dashboard-k8s-cluster
+  name: grafana-dashboard-k3s-cluster
   namespace: monitoring
   labels:
     grafana_dashboard: "1"
 data:
-  k8s-cluster.json: |
+  k3s-cluster.json: |
     {
       "__inputs": [
         {
