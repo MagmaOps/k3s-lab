@@ -39,6 +39,7 @@ grafana:
     dashboards:
       enabled: true
       label: grafana_dashboard
-      searchNamespace: monitoring
+      labelValue: "1"
+      searchNamespace: ALL
     datasources:
       enabled: true

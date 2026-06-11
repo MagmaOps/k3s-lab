@@ -5,3 +5,12 @@ grafana:
     ingressClassName: nginx
     hosts:
       - grafana.lab.local
+
+  sidecar:
+    dashboards:
+      enabled: true
+      label: grafana_dashboard
+      labelValue: "1"
+      searchNamespace: ALL
+    datasources:
+      enabled: true
