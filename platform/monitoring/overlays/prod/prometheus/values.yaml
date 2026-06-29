@@ -5,3 +5,41 @@ prometheus:
     ingressClassName: nginx
     hosts:
       - prometheus.lab.local
+
+  prometheusSpec:
+    replicas: 1
+    retention: 2d
+    retentionSize: 5GB
+
+    resources:
+      requests:
+        cpu: 200m
+        memory: 512Mi
+      limits:
+        cpu: 400m
+        memory: 1Gi
+
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          storageClassName: local-path
+          accessModes: ["ReadWriteOnce"]
+          resources:
+            requests:
+              storage: 4Gi
+
+    serviceMonitorSelectorNilUsesHelmValues: false
+    podMonitorSelectorNilUsesHelmValues: false
+
+alertmanager:
+  enabled: false
+
+kubeStateMetrics:
+  enabled: true
+
+nodeExporter:
+  enabled: true
+
+prometheusOperator:
+  admissionWebhooks:
+    enabled: false

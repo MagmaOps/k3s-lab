@@ -1,10 +1,20 @@
 # platform/monitoring/overlays/prod/grafana/values.yaml
 grafana:
+  enabled: true
+
   ingress:
     enabled: true
     ingressClassName: nginx
     hosts:
       - grafana.lab.local
+
+  resources:
+    requests:
+      cpu: 300m
+      memory: 512Mi
+    limits:
+      cpu: 600m
+      memory: 1024Mi
 
   persistence:
     type: pvc
@@ -13,3 +23,20 @@ grafana:
     accessModes:
       - ReadWriteOnce
     size: 5Gi
+
+  grafana.ini:
+    auth.anonymous:
+      enabled: true
+      org_role: Viewer
+
+    server:
+      domain: localhost
+      root_url: "%(protocol)s://%(domain)s:%(http_port)s/"
+
+  sidecar:
+    dashboards:
+      enabled: true
+      label: grafana_dashboard
+      searchNamespace: ALL
+    datasources:
+      enabled: true
