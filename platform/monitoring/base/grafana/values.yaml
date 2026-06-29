@@ -16,6 +16,15 @@ grafana:
       cpu: 600m
       memory: 1024Mi
 
+  initChownData:
+    enabled: false
+
+  podSecurityContext:
+    fsGroup: 472
+
+  containerSecurityContext:
+    runAsUser: 472
+
   persistence:
     type: pvc
     enabled: true
