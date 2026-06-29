@@ -17,6 +17,7 @@ grafana:
       memory: 1024Mi
 
   persistence:
+    type: pvc
     enabled: true
     storageClassName: local-path
     accessModes:
