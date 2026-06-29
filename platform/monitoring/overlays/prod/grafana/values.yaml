@@ -6,3 +6,10 @@ grafana:
     hosts:
       - grafana.lab.local
 
+  persistence:
+    type: pvc
+    enabled: true
+    storageClassName: local-path
+    accessModes:
+      - ReadWriteOnce
+    size: 5Gi
