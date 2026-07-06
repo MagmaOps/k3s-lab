@@ -6,7 +6,7 @@ grafana:
     enabled: true
     ingressClassName: nginx
     hosts:
-      - grafana-magmalabk3s.duckdns.org
+      - grafana.lab.local
 
   resources:
     requests:
