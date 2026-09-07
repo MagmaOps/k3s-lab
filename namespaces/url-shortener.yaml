@@ -1,0 +1,5 @@
+# namespaces/url-shortener.yaml
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: url-shortener
