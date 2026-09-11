@@ -1,0 +1,3 @@
+# platform/sealed-secrets/kustomization.yaml
+resources:
+  - ./sealed-secrets.yaml
