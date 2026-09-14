@@ -1,0 +1,23 @@
+# apps/url-shortener/workload/prod/migration-hook-patch.yaml
+#
+# Turns the db-migrate Job into an ArgoCD PreSync hook.
+#
+# WHY: a Job's spec.template is immutable once created. Applying it as a normal
+# resource means any change to the template (e.g. resource overrides) is
+# rejected by the API server with "field is immutable". Running it as a PreSync
+# hook makes ArgoCD manage its lifecycle instead: the hook-delete-policy
+# BeforeHookCreation deletes the previous Job and creates a fresh one before
+# each sync, so template changes always apply and migrations run before the
+# app rolls out.
+#
+# This ArgoCD-specific behavior deliberately lives in the cluster GitOps repo
+# (not the app repo base), matching the Style 1 split and the note in the app
+# repo's migration-job.yaml.
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: db-migrate
+  namespace: url-shortener
+  annotations:
+    argocd.argoproj.io/hook: PreSync
+    argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
