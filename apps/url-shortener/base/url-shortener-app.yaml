@@ -10,9 +10,9 @@ spec:
   project: default
 
   source:
-    repoURL: git@github.com:dmytro-zelenianskyi/url-shortener.git
+    repoURL: git@github.com:dmytro-zelenianskyi/k3s-lab.git
     targetRevision: main
-    path: k8s
+    path: apps/url-shortener/workload/prod
 
   destination:
     server: https://kubernetes.default.svc

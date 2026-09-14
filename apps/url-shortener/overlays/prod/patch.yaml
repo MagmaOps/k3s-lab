@@ -1,0 +1,16 @@
+# apps/url-shortener/overlays/prod/patch.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: url-shortener
+  namespace: argocd
+  labels:
+    env: prod
+spec:
+  destination:
+    namespace: url-shortener
+
+  source:
+    repoURL: git@github.com:dmytro-zelenianskyi/k3s-lab.git
+    targetRevision: main
+    path: apps/url-shortener/workload/prod

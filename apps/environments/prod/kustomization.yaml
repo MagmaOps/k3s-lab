@@ -1,0 +1,3 @@
+# apps/environments/prod/kustomization.yaml
+resources:
+  - ../../url-shortener/overlays/prod

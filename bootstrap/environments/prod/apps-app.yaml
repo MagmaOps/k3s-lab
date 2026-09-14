@@ -12,9 +12,7 @@ spec:
   source:
     repoURL: git@github.com:dmytro-zelenianskyi/k3s-lab.git
     targetRevision: refs/heads/main
-    path: apps
-    directory:
-      recurse: true
+    path: apps/environments/prod
 
   destination:
     server: https://kubernetes.default.svc

@@ -1,0 +1,23 @@
+# apps/url-shortener/workload/prod/kustomization.yaml
+#
+# This is the Kustomize directory that the url-shortener ArgoCD Application
+# renders and syncs into the cluster. It is the "prod" customization layer.
+#
+# It pulls the environment-agnostic base straight from the application repo as
+# a REMOTE Kustomize resource, then patches it. This is the Style 1 GitOps
+# split: the app repo publishes a stable base, and ALL environment-specific
+# customization (resource sizing, etc.) lives here in the cluster git.
+#
+# To bump resources, replicas, config, etc. for prod, edit the patch files in
+# this directory. Nothing in the app repo needs to change.
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  # Remote base from the application repo. The `?ref=main` pins the git ref;
+  # bump it to a tag/commit to pin a specific version of the base manifests.
+  - git@github.com:dmytro-zelenianskyi/url-shortener.git//k8s/base?ref=main
+
+patches:
+  # Overrides the container resource requests/limits for prod.
+  - path: resources-patch.yaml

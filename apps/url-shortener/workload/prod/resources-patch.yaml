@@ -1,0 +1,66 @@
+# apps/url-shortener/workload/prod/resources-patch.yaml
+#
+# Prod resource overrides for the url-shortener workloads. These replace the
+# conservative starter values baked into the app repo's base. Tune to taste.
+#
+# Each patch targets a single container by workload kind + name. Kustomize
+# strategic-merge on the container list requires the container `name` to match
+# the base so it merges into the right container rather than appending a new one.
+#
+# `namespace: url-shortener` is REQUIRED on each target: the remote base sets
+# that namespace, so the built resources are namespaced. A patch with no
+# namespace would look for a [noNs] target and fail to match.
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: url-shortener
+  namespace: url-shortener
+spec:
+  template:
+    spec:
+      containers:
+        - name: url-shortener
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: postgres
+  namespace: url-shortener
+spec:
+  template:
+    spec:
+      containers:
+        - name: postgres
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "512Mi"
+            limits:
+              cpu: "1"
+              memory: "1Gi"
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: db-migrate
+  namespace: url-shortener
+spec:
+  template:
+    spec:
+      containers:
+        - name: migrate
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
