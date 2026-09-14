@@ -2,3 +2,4 @@ docs/*
 homelab-pub-cert.pem
 k3s-lab.yaml
 sealed-secrets-key-backup.yaml
+.vscode
