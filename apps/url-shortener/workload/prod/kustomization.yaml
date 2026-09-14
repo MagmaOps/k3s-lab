@@ -16,7 +16,7 @@ kind: Kustomization
 resources:
   # Remote base from the application repo. The `?ref=main` pins the git ref;
   # bump it to a tag/commit to pin a specific version of the base manifests.
-  - git@github.com:dmytro-zelenianskyi/url-shortener.git//k8s/base?ref=main
+  - git@github.com:dmytro-zelenianskyi/url-shortener.git/k8s/base?ref=main
 
 patches:
   # Overrides the container resource requests/limits for prod.
