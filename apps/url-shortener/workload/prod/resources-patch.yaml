@@ -19,19 +19,26 @@ metadata:
   labels:
     app: url-shortener
 spec:
-  replicas: 8
+  replicas: 4
   template:
     metadata:
       labels:
         app: url-shortener
       annotations:
-        scheduling-test: "topology-v1"
+        scheduling-test: "topology-v2"
 
     spec:
       topologySpreadConstraints:
         - maxSkew: 1
           topologyKey: topology.kubernetes.io/zone
-          whenUnsatisfiable: DoNotSchedule
+          whenUnsatisfiable: ScheduleAnyway
+          labelSelector:
+            matchLabels:
+              app: url-shortener
+
+        - maxSkew: 1
+          topologyKey: kubernetes.io/hostname
+          whenUnsatisfiable: ScheduleAnyway
           labelSelector:
             matchLabels:
               app: url-shortener
