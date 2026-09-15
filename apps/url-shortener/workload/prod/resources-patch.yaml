@@ -17,7 +17,7 @@ metadata:
   name: url-shortener
   namespace: url-shortener
 spec:
-  replicas: 2
+  replicas: 4
   template:
     spec:
       containers:
