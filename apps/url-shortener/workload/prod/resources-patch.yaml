@@ -21,6 +21,12 @@ metadata:
 spec:
   replicas: 8
   template:
+    metadata:
+      labels:
+        app: url-shortener
+      annotations:
+        scheduling-test: "topology-v1"
+
     spec:
       topologySpreadConstraints:
         - maxSkew: 1
