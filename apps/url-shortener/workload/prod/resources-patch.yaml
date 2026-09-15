@@ -25,7 +25,7 @@ spec:
       labels:
         app: url-shortener
       annotations:
-        scheduling-test: "topology-v2"
+        scheduling-test: "topology-v3"
 
     spec:
       topologySpreadConstraints:
