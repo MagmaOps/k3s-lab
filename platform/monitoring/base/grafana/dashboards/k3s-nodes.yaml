@@ -1191,7 +1191,7 @@ data:
                 }
               },
               "mappings": [],
-              "max": 4294967296,
+              "max": 6442450944,
               "thresholds": {
                 "mode": "absolute",
                 "steps": [
