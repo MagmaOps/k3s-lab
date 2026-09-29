@@ -19,10 +19,10 @@ spec:
           - $values/platform/monitoring/overlays/prod/prometheus/values.yaml
           - $values/platform/monitoring/overlays/prod/grafana/values.yaml
 
-    - repoURL: git@github.com:dmytro-zelenianskyi/k3s-lab.git
+    - repoURL: git@github.com:MagmaOps/k3s-lab.git
       targetRevision: refs/heads/main
       ref: values
 
-    - repoURL: git@github.com:dmytro-zelenianskyi/k3s-lab.git
+    - repoURL: git@github.com:MagmaOps/k3s-lab.git
       targetRevision: refs/heads/main
       path: platform/monitoring/base/grafana/dashboards

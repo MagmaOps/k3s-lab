@@ -19,6 +19,6 @@ spec:
           - $values/platform/argocd/base/values.yaml
           - $values/platform/argocd/overlays/prod/values.yaml
 
-    - repoURL: git@github.com:dmytro-zelenianskyi/k3s-lab.git
+    - repoURL: git@github.com:MagmaOps/k3s-lab.git
       targetRevision: refs/heads/main
       ref: values

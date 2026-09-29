@@ -10,7 +10,7 @@ spec:
   project: default
 
   source:
-    repoURL: git@github.com:dmytro-zelenianskyi/k3s-lab.git
+    repoURL: git@github.com:MagmaOps/k3s-lab.git
     targetRevision: refs/heads/main
     path: apps/environments/prod
 

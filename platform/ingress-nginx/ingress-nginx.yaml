@@ -17,7 +17,7 @@ spec:
         valueFiles:
           - $values/platform/ingress-nginx/values.yaml
     
-    - repoURL: git@github.com:dmytro-zelenianskyi/k3s-lab.git
+    - repoURL: git@github.com:MagmaOps/k3s-lab.git
       targetRevision: refs/heads/main
       ref: values
 
