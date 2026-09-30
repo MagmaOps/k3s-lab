@@ -17,7 +17,7 @@ resources:
   # Remote base from the application repo. Note the `//` separator between the
   # repo and the in-repo subpath (Kustomize requires it). The `?ref=main` pins
   # the git ref; bump it to a tag/commit to pin a specific base version.
-  - git@github.com:dmytro-zelenianskyi/url-shortener.git//k8s/base?ref=main
+  - git@github.com:MagmaOps/url-shortener.git//k8s/base?ref=main
 
 patches:
   # Overrides the container resource requests/limits for prod.
