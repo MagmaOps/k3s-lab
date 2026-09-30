@@ -8,6 +8,9 @@ runnerScaleSetName: arc-runners
 minRunners: 0
 maxRunners: 2
 
+controllerServiceAccount:
+  name: arc-controller-gha-rs-controller
+
 template:
   spec:
     containers:
