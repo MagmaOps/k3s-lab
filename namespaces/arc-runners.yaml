@@ -1,0 +1,5 @@
+# namespaces/arc-runners.yaml
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: arc-runners

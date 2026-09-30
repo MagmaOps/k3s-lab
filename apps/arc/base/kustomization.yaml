@@ -1,0 +1,8 @@
+# apps/arc/base/kustomization.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - arc-controller-app.yaml
+  - arc-runner-app.yaml
+  - arc-github-token-sealed.yaml

@@ -1,0 +1,21 @@
+# apps/arc/base/runner-values.yaml
+githubConfigUrl: https://github.com/MagmaOps
+
+githubConfigSecret: arc-github-token
+
+runnerScaleSetName: arc-runners
+
+minRunners: 0
+maxRunners: 2
+
+template:
+  spec:
+    containers:
+      - name: runner
+        resources:
+          requests:
+            cpu: 250m
+            memory: 512Mi
+          limits:
+            cpu: 500m
+            memory: 1Gi

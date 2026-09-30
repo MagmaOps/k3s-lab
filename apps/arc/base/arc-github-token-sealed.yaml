@@ -1,0 +1,13 @@
+# apps/arc/base/arc-github-token-sealed.yaml
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  name: arc-github-token
+  namespace: arc-runners
+spec:
+  encryptedData:
+    github_token: AgC2Jjmhs9cu+/q3qipbskk6W6cUlI5Ywgux36AFqc6DI0mZ68CML82zp4pIm3ollxH27qk0WNoAprOCbQFna6q/OJBcLrVjFadPiJ3VQV+dggTl3sgoFS+pgtIDxljW/lS+doTDz0nIQFAzPOQJ5tPNH/N/DSClBCrmmYIDKzQj2nN5NJIV8bAa2jh0pQPhPiqI4RY0ueKjBbjSscCs6c0h/fKa123Mx+w4AiPKdfRe/9TWAayCW+rLUT1H8nD0pdetRhXjzhl6XxTDbYURjT0mTWyn2UrG+qsHSKmtVJcDlVsm7JHt+CNDvCaH5QbZNqo9gA1aSvqj+X0ugr2pGy6HqY6WiD1+S3OHu9gE4YLTVFsFNPlQHPkQbjMeyk/mhqH1hBk3PSlTkzZCckjg8edR9x8rQSvj3lYGV6abt8bFh8EVF0Nc2fBOXgxuS/0Py7lw3dihuVKd3EiOb/0yipnv/iBGlnZy/bqDrPSRY1z0U3N49lM+Z2RTLDNU02/hX6cTq2rY+ZGKXyR+Roq/AZz0aj++v8/6AK2n8HO/gQRJc7HpIXu/dGgQQvg1hulPXi9mtEVIXPICgbZyS0WwzZrScX2QZr5aIdvxhaAOt4+xJTSx1K+rhgFrEDKNk0midL+wngvpsQuafAtDq1mg6/obxSdCDRyGG0wAYTTf/S8iWHsbmQgm8vSdW7nfWqQixNg8mYVoK1xZ4pSBfAUbiJwgt02zR6O9U6/kdkxXhfmzA4aep/SNZwCZxk+h0UsjXqjdxV8JDSQDxzJ0Ie82YEr6+HSvfzn+mMw+/CJQL5AE3TneLSQIqr6yh3Lfnmo=
+  template:
+    metadata:
+      name: arc-github-token
+      namespace: arc-runners
