@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  ci:
+  k3s-ci:
     uses: MagmaOps/k3s-lab-ci/.github/workflows/k3s-validate.yaml@main
     with:
       ref: ${{ github.event.pull_request.head.sha }}
