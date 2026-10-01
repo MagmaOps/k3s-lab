@@ -1,4 +1,4 @@
-# namespaces/test.yaml ////
+# namespaces/test.yaml ///
 apiVersion: v1
 kind: Namespace
 metadata:
