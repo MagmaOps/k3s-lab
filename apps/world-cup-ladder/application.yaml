@@ -12,6 +12,7 @@ metadata:
   namespace: argocd
   annotations:
     argocd.argoproj.io/sync-wave: "2"
+    deployment.revision: "1.0.2"
 spec:
   project: default
 
