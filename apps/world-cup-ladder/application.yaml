@@ -22,7 +22,7 @@ spec:
 
     kustomize:
       images:
-        - world-cup-ladder=magmakomer/world-cup-ladder:1.0.0
+        - world-cup-ladder=magmakomer/world-cup-ladder:1.0.1
 
       patches:
         - target:
