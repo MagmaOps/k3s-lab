@@ -6,7 +6,6 @@ metadata:
   namespace: argocd
   annotations:
     argocd.argoproj.io/sync-wave: "2"
-    deployment.revision: "1.0.2"
 spec:
   project: default
 
@@ -17,7 +16,7 @@ spec:
 
     kustomize:
       images:
-        - world-cup-ladder=magmakomer/world-cup-ladder:1.0.2
+        - world-cup-ladder=magmakomer/world-cup-ladder:1.0.3
 
       patches:
         - target:
