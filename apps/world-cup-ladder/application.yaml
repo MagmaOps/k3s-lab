@@ -1,10 +1,4 @@
 # apps/world-cup-ladder/application.yaml
-#
-# The application repo owns the manifests and ships ONLY k8s/base. This
-# Application points Argo CD straight at that base over the SSH remote it is
-# already connected to (git@github.com:MagmaOps/world-cup-ladder.git), so the
-# clone uses Argo CD's registered credentials. All prod-specific values are set
-# here via the kustomize source options — no nested Kustomize git fetch.
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
