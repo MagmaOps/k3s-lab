@@ -1,0 +1,12 @@
+# apps/world-cup-ladder/base/kustomization.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - github.com/MagmaOps/world-cup-ladder//k8s/base?ref=main
+
+patches:
+  - path: ingress-patch.yaml
+    target:
+      kind: Ingress
+      name: world-cup-ladder
