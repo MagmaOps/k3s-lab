@@ -1,0 +1,59 @@
+# apps/world-cup-ladder/application.yaml
+#
+# The application repo owns the manifests and ships ONLY k8s/base. This
+# Application points Argo CD straight at that base over the SSH remote it is
+# already connected to (git@github.com:MagmaOps/world-cup-ladder.git), so the
+# clone uses Argo CD's registered credentials. All prod-specific values are set
+# here via the kustomize source options — no nested Kustomize git fetch.
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: world-cup-ladder
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+spec:
+  project: default
+
+  source:
+    repoURL: git@github.com:MagmaOps/world-cup-ladder.git
+    targetRevision: refs/heads/main
+    path: k8s/base
+
+    kustomize:
+      images:
+        - world-cup-ladder=magmakomer/world-cup-ladder:1.0.0
+
+      patches:
+        - target:
+            kind: Ingress
+            name: world-cup-ladder
+          patch: |-
+            - op: replace
+              path: /spec/rules/0/host
+              value: worldcupladder.lab.local
+
+        - target:
+            kind: Deployment
+            name: world-cup-ladder
+          patch: |-
+            - op: replace
+              path: /spec/template/spec/containers/0/resources
+              value:
+                requests:
+                  cpu: 100m
+                  memory: 128Mi
+                limits:
+                  cpu: 200m
+                  memory: 256Mi
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: world-cup-ladder
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=false
