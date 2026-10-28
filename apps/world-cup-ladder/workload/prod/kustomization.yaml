@@ -8,4 +8,10 @@ images:
     newTag: 1.0.10
 patches:
   - path: ingress-patch.yaml
+    target:
+      kind: Ingress
+      name: world-cup-ladder
   - path: resources-patch.yaml
+    target:
+      kind: Deployment
+      name: world-cup-ladder

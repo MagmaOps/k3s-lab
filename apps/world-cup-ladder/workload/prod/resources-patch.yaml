@@ -3,7 +3,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: world-cup-ladder
-  namespace: world-cup-ladder
   labels:
     app: world-cup-ladder
 spec:
