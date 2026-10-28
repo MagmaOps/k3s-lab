@@ -1,0 +1,36 @@
+# apps/world-cup-ladder/workload/prod/resources-patch.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: world-cup-ladder
+  namespace: world-cup-ladder
+  labels:
+    app: world-cup-ladder
+spec:
+  replicas: 2
+  template:
+    spec:
+      topologySpreadConstraints:
+        - maxSkew: 1
+          topologyKey: topology.kubernetes.io/zone
+          whenUnsatisfiable: ScheduleAnyway
+          labelSelector:
+            matchLabels:
+              app: world-cup-ladder
+
+        - maxSkew: 1
+          topologyKey: kubernetes.io/hostname
+          whenUnsatisfiable: ScheduleAnyway
+          labelSelector:
+            matchLabels:
+              app: world-cup-ladder
+
+      containers:
+        - name: world-cup-ladder
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 200m
+              memory: 256Mi
