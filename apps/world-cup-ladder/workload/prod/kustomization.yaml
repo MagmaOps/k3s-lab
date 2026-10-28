@@ -4,7 +4,8 @@ kind: Kustomization
 resources:
   - git@github.com:MagmaOps/world-cup-ladder.git//k8s/base?ref=main
 images:
-  - name: magmakomer/world-cup-ladder
+  - name: world-cup-ladder
+    newName: magmakomer/world-cup-ladder
     newTag: 1.0.10
 patches:
   - path: ingress-patch.yaml
