@@ -4,5 +4,15 @@ kind: Ingress
 metadata:
   name: world-cup-ladder
 spec:
+  ingressClassName: nginx
   rules:
     - host: worldcupladder.lab.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: world-cup-ladder
+                port:
+                  number: 80
