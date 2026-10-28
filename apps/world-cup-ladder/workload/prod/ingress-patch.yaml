@@ -1,0 +1,8 @@
+# apps/world-cup-ladder/workload/prod/ingress-patch.yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: world-cup-ladder
+spec:
+  rules:
+    - host: worldcupladder.lab.local

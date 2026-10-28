@@ -1,0 +1,16 @@
+# apps/world-cup-ladder/overlays/prod/patch.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: world-cup-ladder
+  namespace: argocd
+  labels:
+    env: prod
+spec:
+  destination:
+    namespace: world-cup-ladder
+
+  source:
+    repoURL: git@github.com:MagmaOps/k3s-lab.git
+    targetRevision: main
+    path: apps/world-cup-ladder/workload/prod
