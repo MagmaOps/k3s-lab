@@ -1,18 +1,13 @@
 # apps/job-search-lab/workload/prod/resources-patch-web.yaml
-apiVersion: argoproj.io/v1alpha1
-kind: Rollout
-metadata:
-  name: jobsearch-web
-spec:
-  replicas: 2
-  template:
-    spec:
-      containers:
-        - name: web
-          resources:
-            requests:
-              cpu: 100m
-              memory: 128Mi
-            limits:
-              cpu: 300m
-              memory: 256i
+- op: replace
+  path: /spec/replicas
+  value: 2
+- op: add
+  path: /spec/template/spec/containers/0/resources
+  value:
+    requests:
+      cpu: 50m
+      memory: 128Mi
+    limits:
+      cpu: 300m
+      memory: 384Mi
