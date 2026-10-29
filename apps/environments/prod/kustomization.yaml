@@ -3,3 +3,4 @@ resources:
   - ../../url-shortener/overlays/prod
   - ../../arc/overlays/prod
   - ../../world-cup-ladder/overlays/prod
+  - ../../job-search-lab/overlays/prod

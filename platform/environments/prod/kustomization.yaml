@@ -5,3 +5,5 @@ resources:
   - ../../ingress-nginx/
   - ../../monitoring/overlays/prod
   - ../../sealed-secrets/
+  - ../../argo-rollouts/base
+  - ../../cloudnative-pg/base

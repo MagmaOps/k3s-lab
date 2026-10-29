@@ -1,0 +1,36 @@
+# apps/job-search-lab/workload/prod/kustomization.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: job-search-lab
+
+resources:
+  - git@github.com:MagmaOps/job-search-lab.git//k8s/base?ref=main
+  - cnpg-cluster.yaml
+  - jobsearch-ai-sealed.yaml
+
+images:
+  - name: jobsearch-backend
+    newName: magmakomer/jobsearch-backend
+    newTag: v1.0.0
+  - name: jobsearch-web
+    newName: magmakomer/jobsearch-web
+    newTag: v1.0.0
+
+patches:
+  - path: ingress-patch.yaml
+    target:
+      kind: Ingress
+      name: jobsearch
+  - path: config-patch.yaml
+    target:
+      kind: ConfigMap
+      name: jobsearch-config
+  - path: resources-patch.yaml
+    target:
+      kind: Rollout
+      name: jobsearch-api
+  - path: resources-patch-web.yaml
+    target:
+      kind: Rollout
+      name: jobsearch-web

@@ -1,0 +1,16 @@
+# apps/job-search-lab/overlays/prod/patch.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: job-search-lab
+  namespace: argocd
+  labels:
+    env: prod
+spec:
+  destination:
+    namespace: job-search-lab
+
+  source:
+    repoURL: git@github.com:MagmaOps/k3s-lab.git
+    targetRevision: main
+    path: apps/job-search-lab/workload/prod

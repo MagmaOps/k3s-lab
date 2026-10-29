@@ -1,0 +1,34 @@
+# platform/argo-rollouts/base/argo-rollouts-app.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argo-rollouts
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  project: default
+
+  sources:
+    - repoURL: https://argoproj.github.io/argo-helm
+      chart: argo-rollouts
+      targetRevision: 2.43.7
+      helm:
+        valueFiles:
+          - $values/platform/argo-rollouts/base/values.yaml
+
+    - repoURL: git@github.com:MagmaOps/k3s-lab.git
+      targetRevision: refs/heads/main
+      ref: values
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argo-rollouts
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=false
+      - ServerSideApply=true

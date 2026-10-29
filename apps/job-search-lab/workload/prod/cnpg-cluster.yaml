@@ -1,0 +1,32 @@
+# apps/job-search-lab/workload/prod/cnpg-cluster.yaml
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: jobsearch-db
+  namespace: job-search-lab
+spec:
+  instances: 3
+  primaryUpdateStrategy: unsupervised
+
+  bootstrap:
+    initdb:
+      database: jobsearch
+      owner: jobsearch
+
+  storage:
+    size: 1Gi
+    storageClassName: local-path
+
+  topologySpreadConstraints:
+    - maxSkew: 1
+      topologyKey: topology.kubernetes.io/zone
+      whenUnsatisfiable: ScheduleAnyway
+      labelSelector:
+        matchLabels:
+          cnpg.io/cluster: jobsearch-db
+    - maxSkew: 1
+      topologyKey: kubernetes.io/hostname
+      whenUnsatisfiable: ScheduleAnyway
+      labelSelector:
+        matchLabels:
+          cnpg.io/cluster: jobsearch-db

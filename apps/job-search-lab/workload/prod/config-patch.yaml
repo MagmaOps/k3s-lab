@@ -1,0 +1,7 @@
+# apps/job-search-lab/workload/prod/config-patch.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: jobsearch-config
+data:
+  CORS_ORIGINS: "http://jobsearch.lab.local"

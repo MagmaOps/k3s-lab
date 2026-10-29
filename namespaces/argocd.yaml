@@ -1,4 +1,4 @@
-# namespaces/microservices.yaml
+# namespaces/argocd.yaml
 apiVersion: v1
 kind: Namespace
 metadata:

@@ -1,0 +1,5 @@
+# namespaces/job-search-lab.yaml
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: job-search-lab

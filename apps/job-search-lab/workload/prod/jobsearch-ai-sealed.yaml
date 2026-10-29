@@ -1,0 +1,13 @@
+# apps/job-search-lab/workload/prod/jobsearch-ai-sealed.yaml
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  name: jobsearch-ai
+  namespace: job-search-lab
+spec:
+  encryptedData:
+    ANTHROPIC_API_KEY: AgC9qEyigwN2R48RcykCjb7GnHUJoAk3AA4//KLGe+PTw3pPtGAuMIWBmc0nJyWPqI+dUsBGtSEqDehgsmM5vhXdRMeT6oMw3jpFkmH/BvbAgNyymEi+Nis9eshFRU3Pw+IWnu+6pLiLO0Svlkk0GzVi17E85+JMn5NvfdYY6M+nHTtODgmJRC09SOP3xjFZXqY/6IDn2rvDkYCV+Gx9zGxtNktetfLxBTnCYsgdQwvaJny5NjOMDo60mj6u4llHGoKkcDsO0lcHVsGCALTzQvbdSeBUt2PkwsdHr+yGxu8lxVOdEcW8m/Xyl6b3NRWNSkmcyhgKhQ1AWmGCwTT70W23bgQEnUXnU43Ws9TkzHKR4iOVc2AJai+nh7nZ+B6Mb23BrZmZFVB1X8ZT00x/Aazggips9Nu5hG4ydHuA4gVvoS0Hbr56IY6r9q30MPWAzAyzn10UHmxteCBA/jTh7Y/B0LT05S6mF5IpVGDBqI1opcjLRhJwUfIncDS/Ps6nFX5hmSB2Qmx/xLWoqD+NRfy6xeP64bSDibfUNpcWgQunv0Ba22hIS2LmDSaJSiLDcdbPNWpB7BQlxrbZPrAYi+iDWLoIhOLwFoeTxXZk+xt44cmH9VGxZNnk6ZClGf6AVKwk0PlocXIEMVWpXKIEI8vc/aCDbdITfKmIHu4hDTfjVHS6+XZ0kll+NN4owBthj2MqTed+tRDdIvHG4mDyxbEX54dAHWBRXx6JwJ/LpA/fkDVduZySKGFpqbeE7RoteF6qMRoz64ZFW9YaRaHFYGj0rO5txtTe5k7ilNLiypCI16VgUxyT1q7WytV8Oeovk6LKXrDnaOr02Jtk
+  template:
+    metadata:
+      name: jobsearch-ai
+      namespace: job-search-lab

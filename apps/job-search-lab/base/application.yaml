@@ -1,0 +1,26 @@
+# apps/job-search-lab/base/application.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: job-search-lab
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+spec:
+  project: default
+
+  source:
+    repoURL: git@github.com:MagmaOps/k3s-lab.git
+    targetRevision: main
+    path: apps/job-search-lab/workload/prod
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: job-search-lab
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=false

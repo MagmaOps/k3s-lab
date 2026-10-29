@@ -1,0 +1,8 @@
+# platform/cloudnative-pg/base/values.yaml
+replicaCount: 1
+resources:
+  requests:
+    cpu: 25m
+    memory: 64Mi
+  limits:
+    memory: 200Mi

@@ -1,0 +1,14 @@
+# platform/argo-rollouts/base/values.yaml
+controller:
+  replicas: 1
+  resources:
+    requests:
+      cpu: 25m
+      memory: 64Mi
+    limits:
+      memory: 128Mi
+
+dashboard:
+  enabled: false
+
+installCRDs: true
