@@ -15,7 +15,6 @@ spec:
 
   storage:
     size: 1Gi
-    storageClassName: local-path
 
   topologySpreadConstraints:
     - maxSkew: 1
