@@ -12,10 +12,10 @@ resources:
 images:
   - name: jobsearch-backend
     newName: magmakomer/jobsearch-backend
-    newTag: v1.2.0
+    newTag: v1.2.1
   - name: jobsearch-web
     newName: magmakomer/jobsearch-web
-    newTag: v1.2.0
+    newTag: v1.2.1
 
 patches:
   - path: ingress-patch.yaml
