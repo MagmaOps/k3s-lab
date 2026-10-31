@@ -7,3 +7,4 @@ resources:
   - ../../sealed-secrets/
   - ../../argo-rollouts/base
   - ../../cloudnative-pg/base
+  - ../../reloader/base

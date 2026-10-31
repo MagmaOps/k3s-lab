@@ -1,0 +1,28 @@
+# platform/reloader/base/values.yaml
+# Reloader watches ConfigMaps/Secrets and rolls workloads that reference them.
+#
+# Opt-in mode: only workloads carrying an explicit annotation are restarted,
+# e.g. on a Deployment:
+#   reloader.stakater.com/auto: "true"            # watch all its CM/Secret refs
+#   secret.reloader.stakater.com/reload: "my-sec" # watch a specific secret
+# Set watchGlobally to restrict scope if desired; default watches all namespaces.
+reloader:
+  watchGlobally: true
+
+  reloadStrategy: annotations
+
+  deployment:
+    resources:
+      requests:
+        cpu: 10m
+        memory: 64Mi
+      limits:
+        cpu: 100m
+        memory: 128Mi
+
+  # Surface Reloader metrics to the kube-prometheus-stack.
+  podMonitor:
+    enabled: false
+  serviceMonitor:
+    enabled: true
+    namespace: monitoring
