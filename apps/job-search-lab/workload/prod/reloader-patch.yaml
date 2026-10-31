@@ -1,0 +1,7 @@
+# apps/job-search-lab/workload/prod/reloader-patch.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: jobsearch-api
+  annotations:
+    reloader.stakater.com/auto: "true"
