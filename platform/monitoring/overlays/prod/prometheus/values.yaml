@@ -1,4 +1,4 @@
-# platform/monitoring/overlays/prod/values.yaml
+# platform/monitoring/overlays/prod/prometheus/values.yaml
 prometheus:
   ingress:
     enabled: true
@@ -9,7 +9,7 @@ prometheus:
   prometheusSpec:
     replicas: 1
     retention: 2d
-    retentionSize: 5GB
+    retentionSize: 3GB
 
     resources:
       requests:
@@ -32,7 +32,70 @@ prometheus:
     podMonitorSelectorNilUsesHelmValues: false
 
 alertmanager:
-  enabled: false
+  enabled: true
+
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    hosts:
+      - alertmanager.lab.local
+    paths:
+      - /
+
+  secrets:
+    - alertmanager-telegram
+
+  alertmanagerSpec:
+    replicas: 1
+
+    resources:
+      requests:
+        cpu: 10m
+        memory: 64Mi
+      limits:
+        cpu: 100m
+        memory: 128Mi
+
+    storage:
+      volumeClaimTemplate:
+        spec:
+          storageClassName: local-path
+          accessModes: ["ReadWriteOnce"]
+          resources:
+            requests:
+              storage: 1Gi
+
+  config:
+    global:
+      resolve_timeout: 5m
+
+    route:
+      receiver: telegram
+      group_by: ["alertname", "namespace"]
+      group_wait: 30s
+      group_interval: 5m
+      repeat_interval: 4h
+      routes:
+        - receiver: "null"
+          matchers:
+            - alertname = "Watchdog"
+
+    receivers:
+      - name: "null"
+      - name: telegram
+        telegram_configs:
+          - bot_token_file: /etc/alertmanager/secrets/alertmanager-telegram/token
+            chat_id: REPLACE_WITH_YOUR_CHAT_ID
+            parse_mode: HTML
+            send_resolved: true
+            message: |
+              {{ if eq .Status "firing" }}🔴{{ else }}✅{{ end }} <b>{{ .Status | toUpper }}</b> ({{ .Alerts | len }})
+              {{ range .Alerts }}
+              <b>{{ .Labels.alertname }}</b>{{ if .Labels.severity }} [{{ .Labels.severity }}]{{ end }}
+              {{ .Annotations.summary }}{{ if .Annotations.description }}
+              {{ .Annotations.description }}{{ end }}
+              {{ if .Labels.namespace }}ns: {{ .Labels.namespace }}{{ end }}
+              {{ end }}
 
 kubeStateMetrics:
   enabled: true

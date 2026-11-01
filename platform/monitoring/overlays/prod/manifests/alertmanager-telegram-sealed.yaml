@@ -1,0 +1,13 @@
+# platform/monitoring/overlays/prod/manifests/alertmanager-telegram-sealed.yaml
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  name: alertmanager-telegram
+  namespace: monitoring
+spec:
+  encryptedData:
+    token: AgByy7O2pjIv87T1Kpyj6UmKIwK1Ki1MvNXQJ2Y/jxjwM48P6x/RziZif4w9WK9lNSjCkB3P863nAH4IqgL1Nh/D7D2YeoSS+E2Pq6xGIZma5+4eWE/h7zpaahQkJgYgz9m9ZYXmuLXWbl89OjZ4lGsWWQHHt0WPosmInqJ0g8/VIvK4ClCGsVZ04VL3zsWZH6GZrhkgKjDZoPtiCq2CGXD+FBZcjeTfCSG5YsVzNRu9tJhYH3TfZ7v8Q1ntAchbNXbIPI3+ZFcFJnqWgaGiGIoePcS0Oz1AdXtR+YVlo1MFOavkuD+jx2A3Pfa0MbsDI0VB6tX79Np83h0z7FP5/UhTBepxP+v7OqF5myUbhRjQE5d6rWevXFxOY+qdCyfxyrH+DwHhS9JOxyAlV/P8IfGALRSbE3JxRXEs0ugJpMPqbmIIMExBbK0LIgf53H+q0u4K2HG88RjWKg8Psky8qbQTu4KEQIcf/cSkJYRCmkfpvgUA2a3Y/faajq+xKP1oibuSCFfU1Ces69RUbdMZotJbUTHsLSmmBRR9i4/MHZMx12ptFDJBjvJ97BxrZeM87psDhtduNuL5YVQrXl7fZbMjtWcEDQ73RgMBe0dNf0OSNbA9R7FVrg5u69tP+gHoiE/N3YmyaX4yxkF/y9hThVWh072vO4QNmTE+BjtENUcWJcjNlpMw9EwBNtmuG/DR8bz/oaUFZGpfC/H9UuSd0zyvLjaKG+0C6ZPjRWtuCr9B+rvfS0lPiKjSvGw6Rsdw
+  template:
+    metadata:
+      name: alertmanager-telegram
+      namespace: monitoring
