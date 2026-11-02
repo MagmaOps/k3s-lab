@@ -1,0 +1,16 @@
+# apps/ai-dev-platform/overlays/prod/patch.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ai-dev-platform
+  namespace: argocd
+  labels:
+    env: prod
+spec:
+  destination:
+    namespace: ai-development
+
+  source:
+    repoURL: git@github.com:MagmaOps/k3s-lab.git
+    targetRevision: main
+    path: apps/ai-dev-platform/workload/prod

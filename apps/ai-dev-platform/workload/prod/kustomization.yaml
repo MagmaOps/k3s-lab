@@ -1,0 +1,13 @@
+# apps/ai-dev-platform/workload/prod/kustomization.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: ai-development
+
+resources:
+  - git@github.com:MagmaOps/ai-dev-platform.git//kubernetes/base?ref=main
+
+images:
+  - name: claude-dev
+    newName: magmakomer/claude-dev
+    newTag: 0.1.1
