@@ -1,0 +1,13 @@
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  name: claude-dev-claude
+  namespace: ai-development
+spec:
+  encryptedData:
+    CLAUDE_CODE_OAUTH_TOKEN: AgBH6VEvKhgycVvvV8FZ9sMd07bf/86kE5wNBg154pWajm6hqZ3RTQ3FtnSA+LXrb6K03w+NVB1CcS0DflELidH0CTE8TopTXon65aq9qDTk7mvbWGggutAOBCWRw+k6NqFm61vqBORB7UfqtkwQt5oek8+QMq4NzyDIctsI5MYiqE48V/uAiYL2Rp2N8Whd2iBL4M0r0ZYlp6WMDR9gNmG7I/UwsPw9NX0L/rwcFX0LaLr305pr6B8LCi9sd4EJNUq+puouGmKem0PmCyKxDH6c+LThFAYJLGmrzdniPnb++boTsbfq9HxlRqf49ey3Lc93sN64n7NMR1PO112L7sU3EIrrjEn0/PcDSleJaVOeP2Lr2Jom9FkflXx3HMURTXPgslrjMkQXYG28/HakdvUIAswxYOpIn/8vPhEXZ9maVksiGIgIs+HVYJVFEGV/y08TpqCfxEo3mLM2aWzIrZRCLCKnVUeuvMavkwNRqUjWcpgm3Bf9XXnnhPf7TSGq+CEaYaOcxOiBlMlTns5MATNle1NdtjI3tdgWFXvdXQrkWb824bXB43lV6TCXCq22Zc80CKzg0Px/SJWyOA2vRODkHZc6toAkoHXB4XK/1wtT33o1++scbBf+Ppj4+Jx/0k8g1CeZLW8SERe7LKsNx3Zkg/pVDDCzQ7Za00QhpgHaFHGLErP1BE9ZYuJpRtNcmmEHNKmIoKObo15hPGhSeS1G27Eg7l3IG2XDbsn6auO+wmwcSfOAhiBJwxtHTsh9obRUgfuJHqliV6+VvAvU8UFInmMn+YGpLRI02QbjPlmDnUozFzIJwOmQSYf4W6kUgt/FNRr50za1T/ALnmM=
+  template:
+    metadata:
+      name: claude-dev-claude
+      namespace: ai-development
