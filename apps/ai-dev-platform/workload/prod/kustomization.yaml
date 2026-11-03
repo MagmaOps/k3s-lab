@@ -5,9 +5,16 @@ kind: Kustomization
 namespace: ai-development
 
 resources:
-  - git@github.com:MagmaOps/ai-dev-platform.git//kubernetes/base?ref=main
+  - git@github.com:MagmaOps/ai-dev-platform.git//k8s/base?ref=main
+  - claude-dev-github-sealed.yaml
 
 images:
   - name: claude-dev
     newName: magmakomer/claude-dev
     newTag: 0.1.1
+
+patches:
+  - path: config-patch.yaml
+    target:
+      kind: ConfigMap
+      name: claude-dev-config

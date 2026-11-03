@@ -1,0 +1,10 @@
+# apps/ai-dev-platform/workload/prod/config-patch.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: claude-dev-config
+data:
+  GIT_AUTHOR_NAME: "magma-claude-1"
+  GIT_AUTHOR_EMAIL: "351722468+magma-claude-1@users.noreply.github.com"
+  GIT_COMMITTER_NAME: "magma-claude-1"
+  GIT_COMMITTER_EMAIL: "351722468+magma-claude-1@users.noreply.github.com"
