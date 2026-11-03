@@ -7,6 +7,7 @@ namespace: ai-development
 resources:
   - git@github.com:MagmaOps/ai-dev-platform.git//k8s/base?ref=main
   - claude-dev-github-sealed.yaml
+  - claude-dev-claude-sealed.yaml
 
 images:
   - name: claude-dev
