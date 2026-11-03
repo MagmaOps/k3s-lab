@@ -10,8 +10,7 @@ resources:
   - claude-dev-claude-sealed.yaml
 
 images:
-  - name: claude-dev
-    newName: magmakomer/claude-dev
+  - name: magmakomer/claude-dev
     newTag: 0.1.2
 
 patches:
