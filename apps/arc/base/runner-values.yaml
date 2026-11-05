@@ -6,7 +6,7 @@ githubConfigSecret: arc-github-token
 
 runnerScaleSetName: arc-runners
 
-minRunners: 2
+minRunners: 1
 maxRunners: 4
 
 controllerServiceAccount:
