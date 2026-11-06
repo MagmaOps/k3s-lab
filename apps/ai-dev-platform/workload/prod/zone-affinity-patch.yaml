@@ -1,0 +1,18 @@
+# Keep claude-dev off proxmox-3 (nodes there keep failing).
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: claude-dev
+spec:
+  template:
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: topology.kubernetes.io/zone
+                    operator: In
+                    values:
+                      - proxmox-1
+                      - proxmox-2
