@@ -18,3 +18,4 @@ patches:
     target:
       kind: ConfigMap
       name: claude-dev-config
+  - path: zone-affinity-patch.yaml
