@@ -5,7 +5,7 @@ metadata:
   name: jobsearch-db
   namespace: job-search-lab
 spec:
-  instances: 3
+  instances: 2
   primaryUpdateStrategy: unsupervised
 
   bootstrap:
