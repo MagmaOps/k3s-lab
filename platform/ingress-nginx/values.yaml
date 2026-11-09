@@ -18,6 +18,12 @@ controller:
     enabled: true
     default: false
 
+  # TEMP: containerd default AppArmor profile blocks nginx reload signal after reboot (kernel 7.0.0-42,
+  # containerd 2.2.3). Replace with a Localhost profile.
+  containerSecurityContext:
+    appArmorProfile:
+      type: Unconfined
+
   service:
     type: LoadBalancer
     annotations:
