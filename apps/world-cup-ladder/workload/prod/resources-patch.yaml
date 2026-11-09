@@ -6,7 +6,7 @@ metadata:
   labels:
     app: world-cup-ladder
 spec:
-  replicas: 2
+  replicas: 0
   template:
     spec:
       topologySpreadConstraints:
