@@ -18,11 +18,14 @@ controller:
     enabled: true
     default: false
 
-  # TEMP: containerd default AppArmor profile blocks nginx reload signal after reboot (kernel 7.0.0-42,
-  # containerd 2.2.3). Replace with a Localhost profile.
+  # containerd's default AppArmor profile blocks the nginx reload signal after the reboot (kernel 7.0.0-42,
+  # containerd 2.2.3, stacked label "//&unconfined"). Custom profile with the extra rules lives in
+  # apparmor/k3s-ingress-nginx and is loaded on every node by ansible/site.yml. It must exist on a node
+  # before a pod can start there (including k3s-w4 once it is back).
   containerSecurityContext:
     appArmorProfile:
-      type: Unconfined
+      type: Localhost
+      localhostProfile: k3s-ingress-nginx
 
   service:
     type: LoadBalancer
